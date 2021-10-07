@@ -44,6 +44,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/qtum"
 	"github.com/decenomy/blockbook/bchain/coins/ravencoin"
 	"github.com/decenomy/blockbook/bchain/coins/ritocoin"
+	"github.com/decenomy/blockbook/bchain/coins/sapphire"
 	"github.com/decenomy/blockbook/bchain/coins/snowgem"
 	"github.com/decenomy/blockbook/bchain/coins/trezarcoin"
 	"github.com/decenomy/blockbook/bchain/coins/unobtanium"
@@ -122,6 +123,7 @@ func init() {
 	BlockChainFactories["Omotenashicoin Testnet"] = omotenashicoin.NewOmotenashiCoinRPC
 	BlockChainFactories["BitZeny"] = bitzeny.NewBitZenyRPC
 	BlockChainFactories["Trezarcoin"] = trezarcoin.NewTrezarcoinRPC
+	BlockChainFactories["Sapphire"] = sapphire.NewSapphireRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
