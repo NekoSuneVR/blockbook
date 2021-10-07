@@ -45,10 +45,10 @@ RUN go get github.com/gobuffalo/packr/...
 
 # pre-load depencencies
 RUN \
-    cleanup() { rm -rf $GOPATH/src/github.com/trezor ; } && \
+    cleanup() { rm -rf $GOPATH/src/github.com/decenomy ; } && \
     trap cleanup EXIT && \
-    mkdir -p $GOPATH/src/github.com/trezor && \
-    cd $GOPATH/src/github.com/trezor && \
+    mkdir -p $GOPATH/src/github.com/decenomy && \
+    cd $GOPATH/src/github.com/decenomy && \
     git clone https://github.com/decenomy/blockbook.git && \
     cd blockbook && \
     go mod download
