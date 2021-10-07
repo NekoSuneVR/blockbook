@@ -8,8 +8,8 @@ import (
 	"testing"
 
 	"github.com/juju/errors"
-	"github.com/trezor/blockbook/bchain/coins/eth"
-	"github.com/trezor/blockbook/tests/dbtestdata"
+	"github.com/decenomy/blockbook/bchain/coins/eth"
+	"github.com/decenomy/blockbook/tests/dbtestdata"
 )
 
 type testEthereumParser struct {

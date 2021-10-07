@@ -18,10 +18,10 @@ import (
 	"time"
 
 	"github.com/golang/glog"
-	"github.com/trezor/blockbook/api"
-	"github.com/trezor/blockbook/bchain"
-	"github.com/trezor/blockbook/common"
-	"github.com/trezor/blockbook/db"
+	"github.com/decenomy/blockbook/api"
+	"github.com/decenomy/blockbook/bchain"
+	"github.com/decenomy/blockbook/common"
+	"github.com/decenomy/blockbook/db"
 )
 
 const txsOnPage = 25

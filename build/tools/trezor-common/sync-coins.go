@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"strings"
 
-	build "github.com/trezor/blockbook/build/tools"
+	build "github.com/decenomy/blockbook/build/tools"
 )
 
 const (

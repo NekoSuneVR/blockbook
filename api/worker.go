@@ -15,10 +15,10 @@ import (
 
 	"github.com/golang/glog"
 	"github.com/juju/errors"
-	"github.com/trezor/blockbook/bchain"
-	"github.com/trezor/blockbook/bchain/coins/eth"
-	"github.com/trezor/blockbook/common"
-	"github.com/trezor/blockbook/db"
+	"github.com/decenomy/blockbook/bchain"
+	"github.com/decenomy/blockbook/bchain/coins/eth"
+	"github.com/decenomy/blockbook/common"
+	"github.com/decenomy/blockbook/db"
 )
 
 // Worker is handle to api worker
