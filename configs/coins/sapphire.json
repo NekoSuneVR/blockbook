@@ -27,6 +27,9 @@
       "verification_type": "sha256",
       "verification_source": "84afaea176800e1bd29d261ac08c9e44140c60e4fb1a0808b8ae6b21ab13de77",
       "extract_command": "unzip -j -d backend",
+      "exclude_files": [
+        "sapphire-qt"
+      ],
       "exec_command_template": "{{.Env.BackendInstallPath}}/{{.Coin.Alias}}/sapphired -datadir={{.Env.BackendDataPath}}/{{.Coin.Alias}}/backend -conf={{.Env.BackendInstallPath}}/{{.Coin.Alias}}/{{.Coin.Alias}}.conf -pid=/run/{{.Coin.Alias}}/{{.Coin.Alias}}.pid",
       "logrotate_files_template": "{{.Env.BackendDataPath}}/{{.Coin.Alias}}/backend/*.log",
       "postinst_script_template": "",
