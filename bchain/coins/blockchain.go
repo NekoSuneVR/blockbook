@@ -49,6 +49,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/sapphire"
 	"github.com/decenomy/blockbook/bchain/coins/snowgem"
 	"github.com/decenomy/blockbook/bchain/coins/trezarcoin"
+	"github.com/decenomy/blockbook/bchain/coins/trittium"
 	"github.com/decenomy/blockbook/bchain/coins/unobtanium"
 	"github.com/decenomy/blockbook/bchain/coins/vertcoin"
 	"github.com/decenomy/blockbook/bchain/coins/viacoin"
@@ -128,6 +129,7 @@ func init() {
 	BlockChainFactories["Sapphire"] = sapphire.NewSapphireRPC
 	BlockChainFactories["Kyanite"] = kyanite.NewKyaniteRPC
 	BlockChainFactories["Jackpot"] = jackpot.NewJackpotRPC
+	BlockChainFactories["Trittium"] = trittium.NewTrittiumRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
