@@ -30,6 +30,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/fujicoin"
 	"github.com/decenomy/blockbook/bchain/coins/gamecredits"
 	"github.com/decenomy/blockbook/bchain/coins/grs"
+	"github.com/decenomy/blockbook/bchain/coins/kyanite"
 	"github.com/decenomy/blockbook/bchain/coins/koto"
 	"github.com/decenomy/blockbook/bchain/coins/liquid"
 	"github.com/decenomy/blockbook/bchain/coins/litecoin"
@@ -124,6 +125,7 @@ func init() {
 	BlockChainFactories["BitZeny"] = bitzeny.NewBitZenyRPC
 	BlockChainFactories["Trezarcoin"] = trezarcoin.NewTrezarcoinRPC
 	BlockChainFactories["Sapphire"] = sapphire.NewSapphireRPC
+	BlockChainFactories["Kyanite"] = kyanite.NewKyaniteRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
