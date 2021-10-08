@@ -1,4 +1,4 @@
-package kyanite
+package jackpot
 
 import (
 	"github.com/decenomy/blockbook/bchain"
@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	MainnetMagic wire.BitcoinNet = 0xf9a9f6a6
+	MainnetMagic wire.BitcoinNet = 0x77867bc8
 )
 
 var (
@@ -20,17 +20,17 @@ func init() {
 	MainNetParams = chaincfg.MainNetParams
 	MainNetParams.Net = MainnetMagic
 
-	MainNetParams.PubKeyHashAddrID = []byte{46}
+	MainNetParams.PubKeyHashAddrID = []byte{15}
 	MainNetParams.ScriptHashAddrID = []byte{16}
 }
 
-type KyaniteParser struct {
+type JackpotParser struct {
 	*btc.BitcoinParser
 	baseparser *bchain.BaseParser
 }
 
-func NewKyaniteParser(params *chaincfg.Params, c *btc.Configuration) *KyaniteParser {
-	return &KyaniteParser{BitcoinParser: btc.NewBitcoinParser(params, c), baseparser: &bchain.BaseParser{}}
+func NewJackpotParser(params *chaincfg.Params, c *btc.Configuration) *JackpotParser {
+	return &JackpotParser{BitcoinParser: btc.NewBitcoinParser(params, c), baseparser: &bchain.BaseParser{}}
 }
 
 func GetChainParams(chain string) *chaincfg.Params {
@@ -43,10 +43,10 @@ func GetChainParams(chain string) *chaincfg.Params {
 	return &MainNetParams
 }
 
-func (p *KyaniteParser) PackTx(tx *bchain.Tx, height uint32, blockTime int64) ([]byte, error) {
+func (p *JackpotParser) PackTx(tx *bchain.Tx, height uint32, blockTime int64) ([]byte, error) {
 	return p.baseparser.PackTx(tx, height, blockTime)
 }
 
-func (p *KyaniteParser) UnpackTx(buf []byte) (*bchain.Tx, uint32, error) {
+func (p *JackpotParser) UnpackTx(buf []byte) (*bchain.Tx, uint32, error) {
 	return p.baseparser.UnpackTx(buf)
 }
