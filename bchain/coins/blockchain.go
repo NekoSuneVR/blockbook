@@ -12,6 +12,7 @@ import (
 	"github.com/juju/errors"
 	"github.com/decenomy/blockbook/bchain"
 	"github.com/decenomy/blockbook/bchain/coins/bch"
+	"github.com/decenomy/blockbook/bchain/coins/beacon"
 	"github.com/decenomy/blockbook/bchain/coins/bellcoin"
 	"github.com/decenomy/blockbook/bchain/coins/bitcore"
 	"github.com/decenomy/blockbook/bchain/coins/bitzeny"
@@ -132,6 +133,7 @@ func init() {
 	BlockChainFactories["Jackpot"] = jackpot.NewJackpotRPC
 	BlockChainFactories["Trittium"] = trittium.NewTrittiumRPC
 	BlockChainFactories["Dashdiamond"] = dashdiamond.NewDashdiamondRPC
+	BlockChainFactories["Beacon"] = beacon.NewBeaconRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
