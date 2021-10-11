@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	MainnetMagic wire.BitcoinNet = 0x583eb213
+	MainnetMagic wire.BitcoinNet = 0x3ddbbdd9
 )
 
 var (
@@ -20,8 +20,8 @@ func init() {
 	MainNetParams = chaincfg.MainNetParams
 	MainNetParams.Net = MainnetMagic
 
-	MainNetParams.PubKeyHashAddrID = []byte{63}
-	MainNetParams.ScriptHashAddrID = []byte{18}
+	MainNetParams.PubKeyHashAddrID = []byte{30}
+	MainNetParams.ScriptHashAddrID = []byte{83}
 }
 
 type DashdiamondParser struct {
