@@ -19,6 +19,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/btc"
 	"github.com/decenomy/blockbook/bchain/coins/btg"
 	"github.com/decenomy/blockbook/bchain/coins/cpuchain"
+	"github.com/decenomy/blockbook/bchain/coins/cryptoflow"
 	"github.com/decenomy/blockbook/bchain/coins/dash"
 	"github.com/decenomy/blockbook/bchain/coins/dashdiamond"
 	"github.com/decenomy/blockbook/bchain/coins/dcr"
@@ -136,6 +137,7 @@ func init() {
 	BlockChainFactories["Dashdiamond"] = dashdiamond.NewDashdiamondRPC
 	BlockChainFactories["Beacon"] = beacon.NewBeaconRPC
 	BlockChainFactories["Peony"] = peony.NewPeonyRPC
+	BlockChainFactories["Cryptoflow"] = cryptoflow.NewCryptoflowRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
