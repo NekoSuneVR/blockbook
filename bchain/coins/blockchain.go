@@ -43,6 +43,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/namecoin"
 	"github.com/decenomy/blockbook/bchain/coins/nuls"
 	"github.com/decenomy/blockbook/bchain/coins/omotenashicoin"
+	"github.com/decenomy/blockbook/bchain/coins/peony"
 	"github.com/decenomy/blockbook/bchain/coins/pivx"
 	"github.com/decenomy/blockbook/bchain/coins/polis"
 	"github.com/decenomy/blockbook/bchain/coins/qtum"
@@ -134,6 +135,7 @@ func init() {
 	BlockChainFactories["Trittium"] = trittium.NewTrittiumRPC
 	BlockChainFactories["Dashdiamond"] = dashdiamond.NewDashdiamondRPC
 	BlockChainFactories["Beacon"] = beacon.NewBeaconRPC
+	BlockChainFactories["Peony"] = peony.NewPeonyRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
