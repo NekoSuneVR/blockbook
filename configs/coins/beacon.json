@@ -6,14 +6,14 @@
       "alias": "beacon"
     },
     "ports": {
-      "backend_rpc": 18040,
+      "backend_rpc": 36553,
       "backend_message_queue": 38340,
       "blockbook_internal": 9040,
       "blockbook_public": 9140
     },
     "ipc": {
       "rpc_url_template": "http://127.0.0.1:{{.Ports.BackendRPC}}",
-      "rpc_user": "rpc",
+      "rpc_user": "beacon",
       "rpc_pass": "beaconrpc",
       "rpc_timeout": 25,
       "message_queue_binding_template": "tcp://127.0.0.1:{{.Ports.BackendMessageQueue}}"
@@ -56,7 +56,7 @@
         "mempool_sub_workers": 2,
         "block_addresses_to_keep": 300,
         "xpub_magic": 36513075,
-        "slip44": 119,
+        "slip44": 841,
         "additional_params": {}
       }
     },

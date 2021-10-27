@@ -7,13 +7,13 @@
     },
     "ports": {
       "backend_rpc": 8055,
-      "backend_message_queue": 38555,
-      "blockbook_internal": 9555,
-      "blockbook_public": 9655
+      "backend_message_queue": 38345,
+      "blockbook_internal": 9045,
+      "blockbook_public": 9145
     },
     "ipc": {
       "rpc_url_template": "http://127.0.0.1:{{.Ports.BackendRPC}}",
-      "rpc_user": "rpc",
+      "rpc_user": "peony",
       "rpc_pass": "peonyrpc",
       "rpc_timeout": 25,
       "message_queue_binding_template": "tcp://127.0.0.1:{{.Ports.BackendMessageQueue}}"
@@ -56,7 +56,7 @@
         "mempool_sub_workers": 2,
         "block_addresses_to_keep": 300,
         "xpub_magic": 36513075,
-        "slip44": 119,
+        "slip44": 840,
         "additional_params": {}
       }
     },

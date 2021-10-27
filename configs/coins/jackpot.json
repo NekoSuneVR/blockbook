@@ -6,14 +6,14 @@
       "alias": "jackpot"
     },
     "ports": {
-      "backend_rpc": 11049,
-      "backend_message_queue": 49349,
-      "blockbook_internal": 11049,
-      "blockbook_public": 11149
+      "backend_rpc": 27772,
+      "backend_message_queue": 38343,
+      "blockbook_internal": 9043,
+      "blockbook_public": 9143
     },
     "ipc": {
       "rpc_url_template": "http://127.0.0.1:{{.Ports.BackendRPC}}",
-      "rpc_user": "rpc",
+      "rpc_user": "jackpot",
       "rpc_pass": "jackpotrpc",
       "rpc_timeout": 25,
       "message_queue_binding_template": "tcp://127.0.0.1:{{.Ports.BackendMessageQueue}}"
@@ -56,7 +56,7 @@
         "mempool_sub_workers": 2,
         "block_addresses_to_keep": 300,
         "xpub_magic": 36513075,
-        "slip44": 119,
+        "slip44": 833,
         "additional_params": {}
       }
     },

@@ -6,14 +6,14 @@
       "alias": "kyanite"
     },
     "ports": {
-      "backend_rpc": 9049,
-      "backend_message_queue": 48349,
-      "blockbook_internal": 10049,
-      "blockbook_public": 10149
+      "backend_rpc": 7758,
+      "backend_message_queue": 38344,
+      "blockbook_internal": 9044,
+      "blockbook_public": 9144
     },
     "ipc": {
       "rpc_url_template": "http://127.0.0.1:{{.Ports.BackendRPC}}",
-      "rpc_user": "rpc",
+      "rpc_user": "kyanite",
       "rpc_pass": "kyaniterpc",
       "rpc_timeout": 25,
       "message_queue_binding_template": "tcp://127.0.0.1:{{.Ports.BackendMessageQueue}}"
@@ -56,7 +56,7 @@
         "mempool_sub_workers": 2,
         "block_addresses_to_keep": 300,
         "xpub_magic": 36513075,
-        "slip44": 119,
+        "slip44": 834,
         "additional_params": {}
       }
     },

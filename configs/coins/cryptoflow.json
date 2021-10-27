@@ -6,14 +6,14 @@
       "alias": "cryptoflow"
     },
     "ports": {
-      "backend_rpc": 19049,
-      "backend_message_queue": 37349,
-      "blockbook_internal": 17049,
-      "blockbook_public": 17149
+      "backend_rpc": 13334,
+      "backend_message_queue": 38341,
+      "blockbook_internal": 9041,
+      "blockbook_public": 9141
     },
     "ipc": {
       "rpc_url_template": "http://127.0.0.1:{{.Ports.BackendRPC}}",
-      "rpc_user": "rpc",
+      "rpc_user": "cryptoflow",
       "rpc_pass": "cryptoflowrpc",
       "rpc_timeout": 25,
       "message_queue_binding_template": "tcp://127.0.0.1:{{.Ports.BackendMessageQueue}}"
@@ -56,7 +56,7 @@
         "mempool_sub_workers": 2,
         "block_addresses_to_keep": 300,
         "xpub_magic": 36513075,
-        "slip44": 119,
+        "slip44": 836,
         "additional_params": {}
       }
     },

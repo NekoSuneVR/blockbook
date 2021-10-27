@@ -6,14 +6,14 @@
       "alias": "dashdiamond"
     },
     "ports": {
-      "backend_rpc": 18049,
-      "backend_message_queue": 38333,
-      "blockbook_internal": 19049,
-      "blockbook_public": 19149
+      "backend_rpc": 23452,
+      "backend_message_queue": 38342,
+      "blockbook_internal": 9042,
+      "blockbook_public": 9142
     },
     "ipc": {
       "rpc_url_template": "http://127.0.0.1:{{.Ports.BackendRPC}}",
-      "rpc_user": "rpc",
+      "rpc_user": "dashdiamond",
       "rpc_pass": "dashdiamondrpc",
       "rpc_timeout": 25,
       "message_queue_binding_template": "tcp://127.0.0.1:{{.Ports.BackendMessageQueue}}"
@@ -56,7 +56,7 @@
         "mempool_sub_workers": 2,
         "block_addresses_to_keep": 300,
         "xpub_magic": 36513075,
-        "slip44": 119,
+        "slip44": 837,
         "additional_params": {}
       }
     },

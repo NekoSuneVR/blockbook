@@ -6,14 +6,14 @@
       "alias": "trittium"
     },
     "ports": {
-      "backend_rpc": 12049,
-      "backend_message_queue": 39000,
-      "blockbook_internal": 12049,
-      "blockbook_public": 12149
+      "backend_rpc": 31002,
+      "backend_message_queue": 38346,
+      "blockbook_internal": 9046,
+      "blockbook_public": 9146
     },
     "ipc": {
       "rpc_url_template": "http://127.0.0.1:{{.Ports.BackendRPC}}",
-      "rpc_user": "rpc",
+      "rpc_user": "trittium",
       "rpc_pass": "trittiumrpc",
       "rpc_timeout": 25,
       "message_queue_binding_template": "tcp://127.0.0.1:{{.Ports.BackendMessageQueue}}"
@@ -56,7 +56,7 @@
         "mempool_sub_workers": 2,
         "block_addresses_to_keep": 300,
         "xpub_magic": 36513075,
-        "slip44": 119,
+        "slip44": 838,
         "additional_params": {}
       }
     },
