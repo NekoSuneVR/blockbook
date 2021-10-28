@@ -27,6 +27,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/digibyte"
 	"github.com/decenomy/blockbook/bchain/coins/divi"
 	"github.com/decenomy/blockbook/bchain/coins/dogecoin"
+	"github.com/decenomy/blockbook/bchain/coins/eskacoin"
 	"github.com/decenomy/blockbook/bchain/coins/eth"
 	"github.com/decenomy/blockbook/bchain/coins/firo"
 	"github.com/decenomy/blockbook/bchain/coins/flo"
@@ -140,6 +141,7 @@ func init() {
 	BlockChainFactories["Peony"] = peony.NewPeonyRPC
 	BlockChainFactories["Cryptoflow"] = cryptoflow.NewCryptoflowRPC
 	BlockChainFactories["Oneworld"] = oneworld.NewOneworldRPC
+	BlockChainFactories["Eskacoin"] = eskacoin.NewEskacoinRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
