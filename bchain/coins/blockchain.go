@@ -142,6 +142,7 @@ func init() {
 	BlockChainFactories["Cryptoflow"] = cryptoflow.NewCryptoflowRPC
 	BlockChainFactories["Oneworld"] = oneworld.NewOneworldRPC
 	BlockChainFactories["Eskacoin"] = eskacoin.NewEskacoinRPC
+	BlockChainFactories["Suvereno"] = suvereno.NewSuverenoRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file

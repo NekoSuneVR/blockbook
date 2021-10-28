@@ -1,0 +1,67 @@
+{
+    "coin": {
+      "name": "Suvereno",
+      "shortcut": "SUV",
+      "label": "SUV",
+      "alias": "suvereno"
+    },
+    "ports": {
+      "backend_rpc": 18977,
+      "backend_message_queue": 38350,
+      "blockbook_internal": 9050,
+      "blockbook_public": 9150
+    },
+    "ipc": {
+      "rpc_url_template": "http://127.0.0.1:{{.Ports.BackendRPC}}",
+      "rpc_user": "suvereno",
+      "rpc_pass": "suverenorpc",
+      "rpc_timeout": 25,
+      "message_queue_binding_template": "tcp://127.0.0.1:{{.Ports.BackendMessageQueue}}"
+    },
+    "backend": {
+      "package_name": "backend-suvereno",
+      "package_revision": "satoshilabs-1",
+      "system_user": "suvereno",
+      "version": "2.0.2.0",
+      "binary_url": "https://github.com/decenomy/SUV/releases/download/v2.0.2.0/SUV-2.0.2.0-Linux.zip",
+      "verification_type": "sha256",
+      "verification_source": "3f3adf55091369b16fb428ab364e8e513d16e7b52f2290db8b330288e76acf0d",
+      "extract_command": "unzip -j -d backend",
+      "exclude_files": [
+        "suvereno-qt"
+      ],
+      "exec_command_template": "{{.Env.BackendInstallPath}}/{{.Coin.Alias}}/suverenod -datadir={{.Env.BackendDataPath}}/{{.Coin.Alias}}/backend -conf={{.Env.BackendInstallPath}}/{{.Coin.Alias}}/{{.Coin.Alias}}.conf -pid=/run/{{.Coin.Alias}}/{{.Coin.Alias}}.pid",
+      "logrotate_files_template": "{{.Env.BackendDataPath}}/{{.Coin.Alias}}/backend/*.log",
+      "postinst_script_template": "",
+      "service_type": "forking",
+      "service_additional_params_template": "",
+      "protect_memory": false,
+      "mainnet": true,
+      "server_config_file": "bitcoin_like.conf",
+      "client_config_file": "bitcoin_like_client.conf",
+      "additional_params": {
+        "whitelist": "127.0.0.1"
+      }
+    },
+    "blockbook": {
+      "package_name": "blockbook-suvereno",
+      "system_user": "blockbook-suvereno",
+      "internal_binding_template": ":{{.Ports.BlockbookInternal}}",
+      "public_binding_template": ":{{.Ports.BlockbookPublic}}",
+      "explorer_url": "",
+      "additional_params": "",
+      "block_chain": {
+        "parse": true,
+        "mempool_workers": 8,
+        "mempool_sub_workers": 2,
+        "block_addresses_to_keep": 300,
+        "xpub_magic": 36513075,
+        "slip44": 844,
+        "additional_params": {}
+      }
+    },
+    "meta": {
+      "package_maintainer": "Decenomy",
+      "package_maintainer_email": "dev@decenomy.net"
+    }
+  }
