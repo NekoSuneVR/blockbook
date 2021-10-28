@@ -44,6 +44,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/namecoin"
 	"github.com/decenomy/blockbook/bchain/coins/nuls"
 	"github.com/decenomy/blockbook/bchain/coins/omotenashicoin"
+	"github.com/decenomy/blockbook/bchain/coins/oneworld"
 	"github.com/decenomy/blockbook/bchain/coins/peony"
 	"github.com/decenomy/blockbook/bchain/coins/pivx"
 	"github.com/decenomy/blockbook/bchain/coins/polis"
@@ -138,6 +139,7 @@ func init() {
 	BlockChainFactories["Beacon"] = beacon.NewBeaconRPC
 	BlockChainFactories["Peony"] = peony.NewPeonyRPC
 	BlockChainFactories["Cryptoflow"] = cryptoflow.NewCryptoflowRPC
+	BlockChainFactories["Oneworld"] = oneworld.NewOneworldRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
