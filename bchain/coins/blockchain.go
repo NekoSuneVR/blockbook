@@ -11,6 +11,7 @@ import (
 
 	"github.com/juju/errors"
 	"github.com/decenomy/blockbook/bchain"
+	"github.com/decenomy/blockbook/bchain/coins/azzure"
 	"github.com/decenomy/blockbook/bchain/coins/bch"
 	"github.com/decenomy/blockbook/bchain/coins/beacon"
 	"github.com/decenomy/blockbook/bchain/coins/bellcoin"
@@ -20,6 +21,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/btg"
 	"github.com/decenomy/blockbook/bchain/coins/cpuchain"
 	"github.com/decenomy/blockbook/bchain/coins/cryptoflow"
+	"github.com/decenomy/blockbook/bchain/coins/cryptosaga"
 	"github.com/decenomy/blockbook/bchain/coins/dash"
 	"github.com/decenomy/blockbook/bchain/coins/dashdiamond"
 	"github.com/decenomy/blockbook/bchain/coins/dcr"
@@ -41,6 +43,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/litecoin"
 	"github.com/decenomy/blockbook/bchain/coins/monacoin"
 	"github.com/decenomy/blockbook/bchain/coins/monetaryunit"
+	"github.com/decenomy/blockbook/bchain/coins/monk"
 	"github.com/decenomy/blockbook/bchain/coins/myriad"
 	"github.com/decenomy/blockbook/bchain/coins/namecoin"
 	"github.com/decenomy/blockbook/bchain/coins/nuls"
@@ -56,6 +59,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/snowgem"
 	"github.com/decenomy/blockbook/bchain/coins/trezarcoin"
 	"github.com/decenomy/blockbook/bchain/coins/trittium"
+	"github.com/decenomy/blockbook/bchain/coins/ultraclear"
 	"github.com/decenomy/blockbook/bchain/coins/unobtanium"
 	"github.com/decenomy/blockbook/bchain/coins/vertcoin"
 	"github.com/decenomy/blockbook/bchain/coins/viacoin"
@@ -143,6 +147,10 @@ func init() {
 	BlockChainFactories["Oneworld"] = oneworld.NewOneworldRPC
 	BlockChainFactories["Eskacoin"] = eskacoin.NewEskacoinRPC
 	BlockChainFactories["Suvereno"] = suvereno.NewSuverenoRPC
+	BlockChainFactories["Azzure"] = azzure.NewAzzureRPC
+	BlockChainFactories["Monk"] = monk.NewMonkRPC
+	BlockChainFactories["Ultraclear"] = ultraclear.NewUltraclearRPC
+	BlockChainFactories["Cryptosaga"] = cryptosaga.NewCryptosagaRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
