@@ -57,6 +57,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/ritocoin"
 	"github.com/decenomy/blockbook/bchain/coins/sapphire"
 	"github.com/decenomy/blockbook/bchain/coins/snowgem"
+        "github.com/decenomy/blockbook/bchain/coins/suvereno"
 	"github.com/decenomy/blockbook/bchain/coins/trezarcoin"
 	"github.com/decenomy/blockbook/bchain/coins/trittium"
 	"github.com/decenomy/blockbook/bchain/coins/ultraclear"
