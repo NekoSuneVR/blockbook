@@ -41,6 +41,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/koto"
 	"github.com/decenomy/blockbook/bchain/coins/liquid"
 	"github.com/decenomy/blockbook/bchain/coins/litecoin"
+	"github.com/decenomy/blockbook/bchain/coins/mobilitycoin"
 	"github.com/decenomy/blockbook/bchain/coins/monacoin"
 	"github.com/decenomy/blockbook/bchain/coins/monetaryunit"
 	"github.com/decenomy/blockbook/bchain/coins/monk"
@@ -152,6 +153,7 @@ func init() {
 	BlockChainFactories["Monk"] = monk.NewMonkRPC
 	BlockChainFactories["Ultraclear"] = ultraclear.NewUltraclearRPC
 	BlockChainFactories["Cryptosaga"] = cryptosaga.NewCryptosagaRPC
+	BlockChainFactories["Mobilitycoin"] = mobilitycoin.NewMobilitycoinRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
