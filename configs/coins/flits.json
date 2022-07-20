@@ -1,0 +1,67 @@
+{
+    "coin": {
+      "name": "Flits",
+      "shortcut": "FLS",
+      "label": "FLS",
+      "alias": "flits"
+    },
+    "ports": {
+      "backend_rpc": 12271,
+      "backend_message_queue": 38351,
+      "blockbook_internal": 9051,
+      "blockbook_public": 9151
+    },
+    "ipc": {
+      "rpc_url_template": "http://127.0.0.1:{{.Ports.BackendRPC}}",
+      "rpc_user": "flits",
+      "rpc_pass": "flitsrpc",
+      "rpc_timeout": 25,
+      "message_queue_binding_template": "tcp://127.0.0.1:{{.Ports.BackendMessageQueue}}"
+    },
+    "backend": {
+      "package_name": "backend-flits",
+      "package_revision": "satoshilabs-1",
+      "system_user": "flits",
+      "version": "2.0.1",
+      "binary_url": "https://github.com/decenomy/FLS/releases/download/2.0.1/fls-2.0.1-x86_64-linux-gnu.tar.gz",
+      "verification_type": "sha256",
+      "verification_source": "244410bf48761a6caece220ab75ae83723fbc32134051844633656c08ed65ac9",
+      "extract_command": "tar xvf -C backend",
+      "exclude_files": [
+        "flits-qt"
+      ],
+      "exec_command_template": "{{.Env.BackendInstallPath}}/{{.Coin.Alias}}/flitsd -datadir={{.Env.BackendDataPath}}/{{.Coin.Alias}}/backend -conf={{.Env.BackendInstallPath}}/{{.Coin.Alias}}/{{.Coin.Alias}}.conf -pid=/run/{{.Coin.Alias}}/{{.Coin.Alias}}.pid",
+      "logrotate_files_template": "{{.Env.BackendDataPath}}/{{.Coin.Alias}}/backend/*.log",
+      "postinst_script_template": "",
+      "service_type": "forking",
+      "service_additional_params_template": "",
+      "protect_memory": false,
+      "mainnet": true,
+      "server_config_file": "bitcoin_like.conf",
+      "client_config_file": "bitcoin_like_client.conf",
+      "additional_params": {
+        "whitelist": "127.0.0.1"
+      }
+    },
+    "blockbook": {
+      "package_name": "blockbook-flits",
+      "system_user": "blockbook-flits",
+      "internal_binding_template": ":{{.Ports.BlockbookInternal}}",
+      "public_binding_template": ":{{.Ports.BlockbookPublic}}",
+      "explorer_url": "",
+      "additional_params": "",
+      "block_chain": {
+        "parse": true,
+        "mempool_workers": 8,
+        "mempool_sub_workers": 2,
+        "block_addresses_to_keep": 300,
+        "xpub_magic": 36513075,
+        "slip44": 850,
+        "additional_params": {}
+      }
+    },
+    "meta": {
+      "package_maintainer": "Decenomy",
+      "package_maintainer_email": "dev@decenomy.net"
+    }
+  }

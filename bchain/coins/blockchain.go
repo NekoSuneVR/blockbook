@@ -33,6 +33,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/eskacoin"
 	"github.com/decenomy/blockbook/bchain/coins/eth"
 	"github.com/decenomy/blockbook/bchain/coins/firo"
+	"github.com/decenomy/blockbook/bchain/coins/flits"
 	"github.com/decenomy/blockbook/bchain/coins/flo"
 	"github.com/decenomy/blockbook/bchain/coins/fujicoin"
 	"github.com/decenomy/blockbook/bchain/coins/gamecredits"
@@ -158,6 +159,7 @@ func init() {
 	BlockChainFactories["Mobilitycoin"] = mobilitycoin.NewMobilitycoinRPC
 	BlockChainFactories["Birake"] = birake.NewBirakeRPC
 	BlockChainFactories["Powerbalt"] = powerbalt.NewPowerbaltRPC
+	BlockChainFactories["Flits"] = flits.NewFlitsRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
