@@ -16,6 +16,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/beacon"
 	"github.com/decenomy/blockbook/bchain/coins/bellcoin"
 	"github.com/decenomy/blockbook/bchain/coins/bitcore"
+	"github.com/decenomy/blockbook/bchain/coins/birake"
 	"github.com/decenomy/blockbook/bchain/coins/bitzeny"
 	"github.com/decenomy/blockbook/bchain/coins/btc"
 	"github.com/decenomy/blockbook/bchain/coins/btg"
@@ -53,6 +54,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/peony"
 	"github.com/decenomy/blockbook/bchain/coins/pivx"
 	"github.com/decenomy/blockbook/bchain/coins/polis"
+	"github.com/decenomy/blockbook/bchain/coins/powerbalt"
 	"github.com/decenomy/blockbook/bchain/coins/qtum"
 	"github.com/decenomy/blockbook/bchain/coins/ravencoin"
 	"github.com/decenomy/blockbook/bchain/coins/ritocoin"
@@ -154,6 +156,8 @@ func init() {
 	BlockChainFactories["Ultraclear"] = ultraclear.NewUltraclearRPC
 	BlockChainFactories["Cryptosaga"] = cryptosaga.NewCryptosagaRPC
 	BlockChainFactories["Mobilitycoin"] = mobilitycoin.NewMobilitycoinRPC
+	BlockChainFactories["Birake"] = birake.NewBirakeRPC
+	BlockChainFactories["Powerbalt"] = powerbalt.NewPowerbaltRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file

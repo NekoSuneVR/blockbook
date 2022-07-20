@@ -1,4 +1,4 @@
-package mobilitycoin
+package powerbalt
 
 import (
 	"github.com/decenomy/blockbook/bchain"
@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	MainnetMagic wire.BitcoinNet = 0x786e796c
+	MainnetMagic wire.BitcoinNet = 0xcfd2e3f1
 )
 
 var (
@@ -20,17 +20,17 @@ func init() {
 	MainNetParams = chaincfg.MainNetParams
 	MainNetParams.Net = MainnetMagic
 
-	MainNetParams.PubKeyHashAddrID = []byte{51}
-	MainNetParams.ScriptHashAddrID = []byte{13}
+	MainNetParams.PubKeyHashAddrID = []byte{55}
+	MainNetParams.ScriptHashAddrID = []byte{73}
 }
 
-type MobilitycoinParser struct {
+type PowerbaltParser struct {
 	*btc.BitcoinParser
 	baseparser *bchain.BaseParser
 }
 
-func NewMobilitycoinParser(params *chaincfg.Params, c *btc.Configuration) *MobilitycoinParser {
-	return &MobilitycoinParser{BitcoinParser: btc.NewBitcoinParser(params, c), baseparser: &bchain.BaseParser{}}
+func NewPowerbaltParser(params *chaincfg.Params, c *btc.Configuration) *PowerbaltParser {
+	return &PowerbaltParser{BitcoinParser: btc.NewBitcoinParser(params, c), baseparser: &bchain.BaseParser{}}
 }
 
 func GetChainParams(chain string) *chaincfg.Params {
@@ -43,10 +43,10 @@ func GetChainParams(chain string) *chaincfg.Params {
 	return &MainNetParams
 }
 
-func (p *MobilitycoinParser) PackTx(tx *bchain.Tx, height uint32, blockTime int64) ([]byte, error) {
+func (p *PowerbaltParser) PackTx(tx *bchain.Tx, height uint32, blockTime int64) ([]byte, error) {
 	return p.baseparser.PackTx(tx, height, blockTime)
 }
 
-func (p *MobilitycoinParser) UnpackTx(buf []byte) (*bchain.Tx, uint32, error) {
+func (p *PowerbaltParser) UnpackTx(buf []byte) (*bchain.Tx, uint32, error) {
 	return p.baseparser.UnpackTx(buf)
 }

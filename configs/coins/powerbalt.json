@@ -1,9 +1,9 @@
 {
     "coin": {
-      "name": "Mobility Coin",
-      "shortcut": "MOBIC",
-      "label": "MOBIC",
-      "alias": "mobilitycoin"
+      "name": "Powerbalt",
+      "shortcut": "PWRB",
+      "label": "PWRB",
+      "alias": "powerbalt"
     },
     "ports": {
       "backend_rpc": 22488,
@@ -13,24 +13,24 @@
     },
     "ipc": {
       "rpc_url_template": "http://127.0.0.1:{{.Ports.BackendRPC}}",
-      "rpc_user": "mobic",
-      "rpc_pass": "mobilitycoinrpc",
+      "rpc_user": "powerbalt",
+      "rpc_pass": "powerbaltrpc",
       "rpc_timeout": 25,
       "message_queue_binding_template": "tcp://127.0.0.1:{{.Ports.BackendMessageQueue}}"
     },
     "backend": {
-      "package_name": "backend-mobilitycoin",
+      "package_name": "backend-powerbalt",
       "package_revision": "satoshilabs-1",
-      "system_user": "mobilitycoin",
-      "version": "2.0.1.0",
-      "binary_url": "https://github.com/decenomy/MOBIC/releases/download/v2.0.1.0/MOBIC-2.0.1.0-Linux.zip",
+      "system_user": "powerbalt",
+      "version": "2.0.0",
+      "binary_url": "https://github.com/decenomy/PWRB/releases/download/v2.0.0/pwrb-2.0.0-x86_64-linux-gnu.tar.gz",
       "verification_type": "sha256",
-      "verification_source": "88fc792816d1b3622181760080736303b3bfff178a6244c76ba4d12decf6cf71",
-      "extract_command": "unzip -j -d backend",
+      "verification_source": "2506d0a112efebc430b6a14abddee13d8ed2af0de6cd610a10055ebc3993b7b6",
+      "extract_command": "tar xvf -C backend",
       "exclude_files": [
-        "mobic-qt"
+        "powerbalt-qt"
       ],
-      "exec_command_template": "{{.Env.BackendInstallPath}}/{{.Coin.Alias}}/mobicd -datadir={{.Env.BackendDataPath}}/{{.Coin.Alias}}/backend -conf={{.Env.BackendInstallPath}}/{{.Coin.Alias}}/{{.Coin.Alias}}.conf -pid=/run/{{.Coin.Alias}}/{{.Coin.Alias}}.pid",
+      "exec_command_template": "{{.Env.BackendInstallPath}}/{{.Coin.Alias}}/powerbaltd -datadir={{.Env.BackendDataPath}}/{{.Coin.Alias}}/backend -conf={{.Env.BackendInstallPath}}/{{.Coin.Alias}}/{{.Coin.Alias}}.conf -pid=/run/{{.Coin.Alias}}/{{.Coin.Alias}}.pid",
       "logrotate_files_template": "{{.Env.BackendDataPath}}/{{.Coin.Alias}}/backend/*.log",
       "postinst_script_template": "",
       "service_type": "forking",
@@ -44,8 +44,8 @@
       }
     },
     "blockbook": {
-      "package_name": "blockbook-mobilitycoin",
-      "system_user": "blockbook-mobilitycoin",
+      "package_name": "blockbook-powerbalt",
+      "system_user": "blockbook-powerbalt",
       "internal_binding_template": ":{{.Ports.BlockbookInternal}}",
       "public_binding_template": ":{{.Ports.BlockbookPublic}}",
       "explorer_url": "",

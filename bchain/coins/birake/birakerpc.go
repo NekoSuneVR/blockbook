@@ -1,4 +1,4 @@
-package mobilitycoin
+package birake
 
 import (
 	"encoding/json"
@@ -8,16 +8,16 @@ import (
 	"github.com/juju/errors"
 )
 
-type MobilitycoinRPC struct {
+type BirakeRPC struct {
 	*btc.BitcoinRPC
 }
 
-func NewMobilitycoinRPC(config json.RawMessage, pushHandler func(bchain.NotificationType)) (bchain.BlockChain, error) {
+func NewBirakeRPC(config json.RawMessage, pushHandler func(bchain.NotificationType)) (bchain.BlockChain, error) {
 	b, err := btc.NewBitcoinRPC(config, pushHandler)
 	if err != nil {
 		return nil, err
 	}
-	s := &MobilitycoinRPC{
+	s := &BirakeRPC{
 		b.(*btc.BitcoinRPC),
 	}
 	s.RPCMarshaler = btc.JSONMarshalerV1{}
@@ -25,21 +25,21 @@ func NewMobilitycoinRPC(config json.RawMessage, pushHandler func(bchain.Notifica
 	return s, nil
 }
 
-func (b *MobilitycoinRPC) Initialize() error {
+func (b *BirakeRPC) Initialize() error {
 	ci, err := b.GetChainInfo()
 	if err != nil {
 		return err
 	}
 	chainName := ci.Chain
 	params := GetChainParams(chainName)
-	b.Parser = NewMobilitycoinParser(params, b.ChainConfig)
+	b.Parser = NewBirakeParser(params, b.ChainConfig)
 	b.Testnet = false
 	b.Network = "livenet"
 	glog.Info("rpc: block chain ", params.Name)
 	return nil
 }
 
-func (b *MobilitycoinRPC) GetBlock(hash string, height uint32) (*bchain.Block, error) {
+func (b *BirakeRPC) GetBlock(hash string, height uint32) (*bchain.Block, error) {
 	var err error
 	if hash == "" && height > 0 {
 		hash, err = b.GetBlockHash(height)
@@ -78,6 +78,6 @@ func (b *MobilitycoinRPC) GetBlock(hash string, height uint32) (*bchain.Block, e
 	return block, nil
 }
 
-func (b *MobilitycoinRPC) GetTransactionForMempool(txid string) (*bchain.Tx, error) {
+func (b *BirakeRPC) GetTransactionForMempool(txid string) (*bchain.Tx, error) {
 	return b.GetTransaction(txid)
 }
