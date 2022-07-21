@@ -1,8 +1,8 @@
 package pivx
 
 import (
-    "blockbook/bchain"
-    "blockbook/bchain/coins/btc"
+    "github.com/decenomy/blockbook/bchain"
+    "github.com/decenomy/blockbook/bchain/coins/btc"
     "bytes"
     "io"
     "fmt"
