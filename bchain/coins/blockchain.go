@@ -41,6 +41,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/gastrocoin"
 	"github.com/decenomy/blockbook/bchain/coins/grs"
 	"github.com/decenomy/blockbook/bchain/coins/jackpot"
+	"github.com/decenomy/blockbook/bchain/coins/klimatas"
 	"github.com/decenomy/blockbook/bchain/coins/kyanite"
 	"github.com/decenomy/blockbook/bchain/coins/koto"
 	"github.com/decenomy/blockbook/bchain/coins/liquid"
@@ -170,6 +171,7 @@ func init() {
 	BlockChainFactories["Wagerr"] = wagerr.NewWagerrRPC
 	BlockChainFactories["Gastrocoin"] = gastrocoin.NewGastrocoinRPC
 	BlockChainFactories["Fdreserve"] = fdreserve.NewFdreserveRPC
+	BlockChainFactories["Klimatas"] = klimatas.NewKlimatasRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
