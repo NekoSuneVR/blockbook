@@ -62,6 +62,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/sapphire"
 	"github.com/decenomy/blockbook/bchain/coins/snowgem"
     "github.com/decenomy/blockbook/bchain/coins/suvereno"
+	"github.com/decenomy/blockbook/bchain/coins/telos"
 	"github.com/decenomy/blockbook/bchain/coins/trezarcoin"
 	"github.com/decenomy/blockbook/bchain/coins/trittium"
 	"github.com/decenomy/blockbook/bchain/coins/ultraclear"
@@ -162,6 +163,7 @@ func init() {
 	BlockChainFactories["Powerbalt"] = powerbalt.NewPowerbaltRPC
 	BlockChainFactories["Flits"] = flits.NewFlitsRPC
 	BlockChainFactories["Zenzo"] = zenzo.NewZenzoRPC
+	BlockChainFactories["Telos"] = telos.NewTelosRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
