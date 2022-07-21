@@ -37,6 +37,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/flo"
 	"github.com/decenomy/blockbook/bchain/coins/fujicoin"
 	"github.com/decenomy/blockbook/bchain/coins/gamecredits"
+	"github.com/decenomy/blockbook/bchain/coins/gastrocoin"
 	"github.com/decenomy/blockbook/bchain/coins/grs"
 	"github.com/decenomy/blockbook/bchain/coins/jackpot"
 	"github.com/decenomy/blockbook/bchain/coins/kyanite"
@@ -166,6 +167,7 @@ func init() {
 	BlockChainFactories["Zenzo"] = zenzo.NewZenzoRPC
 	BlockChainFactories["Telos"] = telos.NewTelosRPC
 	BlockChainFactories["Wagerr"] = wagerr.NewWagerrRPC
+	BlockChainFactories["Gastrocoin"] = gastrocoin.NewGastrocoinRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
