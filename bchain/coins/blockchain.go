@@ -70,6 +70,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/vertcoin"
 	"github.com/decenomy/blockbook/bchain/coins/viacoin"
 	"github.com/decenomy/blockbook/bchain/coins/vipstarcoin"
+	"github.com/decenomy/blockbook/bchain/coins/wagerr"
 	"github.com/decenomy/blockbook/bchain/coins/zec"
 	"github.com/decenomy/blockbook/bchain/coins/zenzo"
 	"github.com/decenomy/blockbook/common"
@@ -164,6 +165,7 @@ func init() {
 	BlockChainFactories["Flits"] = flits.NewFlitsRPC
 	BlockChainFactories["Zenzo"] = zenzo.NewZenzoRPC
 	BlockChainFactories["Telos"] = telos.NewTelosRPC
+	BlockChainFactories["Wagerr"] = wagerr.NewWagerrRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file

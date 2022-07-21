@@ -1,0 +1,67 @@
+{
+    "coin": {
+      "name": "Wagerr",
+      "shortcut": "WGR",
+      "label": "WGR",
+      "alias": "wagerr"
+    },
+    "ports": {
+      "backend_rpc": 55003,
+      "backend_message_queue": 38350,
+      "blockbook_internal": 9050,
+      "blockbook_public": 9150
+    },
+    "ipc": {
+      "rpc_url_template": "http://127.0.0.1:{{.Ports.BackendRPC}}",
+      "rpc_user": "wagerr",
+      "rpc_pass": "wagerrrpc",
+      "rpc_timeout": 25,
+      "message_queue_binding_template": "tcp://127.0.0.1:{{.Ports.BackendMessageQueue}}"
+    },
+    "backend": {
+      "package_name": "backend-wagerr",
+      "package_revision": "satoshilabs-1",
+      "system_user": "wagerr",
+      "version": "4.0.0",
+      "binary_url": "https://github.com/wagerr/wagerr/releases/download/v4.0.0/wagerr-4.0.0-x86_64-linux-gnu.tar.gz",
+      "verification_type": "sha256",
+      "verification_source": "43769defabe3c92caf1fb56f536578bc1af3b23b647fd1f6b565ca5eb5697de5",
+      "extract_command": "tar xvf -C backend",
+      "exclude_files": [
+        "wagerr-qt"
+      ],
+      "exec_command_template": "{{.Env.BackendInstallPath}}/{{.Coin.Alias}}/wagerrd -datadir={{.Env.BackendDataPath}}/{{.Coin.Alias}}/backend -conf={{.Env.BackendInstallPath}}/{{.Coin.Alias}}/{{.Coin.Alias}}.conf -pid=/run/{{.Coin.Alias}}/{{.Coin.Alias}}.pid",
+      "logrotate_files_template": "{{.Env.BackendDataPath}}/{{.Coin.Alias}}/backend/*.log",
+      "postinst_script_template": "",
+      "service_type": "forking",
+      "service_additional_params_template": "",
+      "protect_memory": false,
+      "mainnet": true,
+      "server_config_file": "bitcoin_like.conf",
+      "client_config_file": "bitcoin_like_client.conf",
+      "additional_params": {
+        "whitelist": "127.0.0.1"
+      }
+    },
+    "blockbook": {
+      "package_name": "blockbook-wagerr",
+      "system_user": "blockbook-wagerr",
+      "internal_binding_template": ":{{.Ports.BlockbookInternal}}",
+      "public_binding_template": ":{{.Ports.BlockbookPublic}}",
+      "explorer_url": "",
+      "additional_params": "",
+      "block_chain": {
+        "parse": true,
+        "mempool_workers": 8,
+        "mempool_sub_workers": 2,
+        "block_addresses_to_keep": 300,
+        "xpub_magic": 36513075,
+        "slip44": 119,
+        "additional_params": {}
+      }
+    },
+    "meta": {
+      "package_maintainer": "Decenomy",
+      "package_maintainer_email": "dev@decenomy.net"
+    }
+  }
