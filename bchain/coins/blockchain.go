@@ -70,6 +70,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/viacoin"
 	"github.com/decenomy/blockbook/bchain/coins/vipstarcoin"
 	"github.com/decenomy/blockbook/bchain/coins/zec"
+	"github.com/decenomy/blockbook/bchain/coins/zenzo"
 	"github.com/decenomy/blockbook/common"
 )
 
@@ -160,6 +161,7 @@ func init() {
 	BlockChainFactories["Birake"] = birake.NewBirakeRPC
 	BlockChainFactories["Powerbalt"] = powerbalt.NewPowerbaltRPC
 	BlockChainFactories["Flits"] = flits.NewFlitsRPC
+	BlockChainFactories["Zenzo"] = zenzo.NewZenzoRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
