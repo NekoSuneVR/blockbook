@@ -29,6 +29,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/deeponion"
 	"github.com/decenomy/blockbook/bchain/coins/digibyte"
 	"github.com/decenomy/blockbook/bchain/coins/divi"
+	"github.com/decenomy/blockbook/bchain/coins/dogecash"
 	"github.com/decenomy/blockbook/bchain/coins/dogecoin"
 	"github.com/decenomy/blockbook/bchain/coins/eskacoin"
 	"github.com/decenomy/blockbook/bchain/coins/essentia"
@@ -174,6 +175,7 @@ func init() {
 	BlockChainFactories["Fdreserve"] = fdreserve.NewFdreserveRPC
 	BlockChainFactories["Klimatas"] = klimatas.NewKlimatasRPC
 	BlockChainFactories["Essentia"] = essentia.NewEssentiaRPC
+	BlockChainFactories["Dogecash"] = dogecash.NewDogecashRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
