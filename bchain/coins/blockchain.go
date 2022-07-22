@@ -66,6 +66,7 @@ import (
 	"github.com/decenomy/blockbook/bchain/coins/ritocoin"
 	"github.com/decenomy/blockbook/bchain/coins/sapphire"
 	"github.com/decenomy/blockbook/bchain/coins/snowgem"
+	"github.com/decenomy/blockbook/bchain/coins/stakecubecoin"
     "github.com/decenomy/blockbook/bchain/coins/suvereno"
 	"github.com/decenomy/blockbook/bchain/coins/telos"
 	"github.com/decenomy/blockbook/bchain/coins/trezarcoin"
@@ -176,6 +177,7 @@ func init() {
 	BlockChainFactories["Klimatas"] = klimatas.NewKlimatasRPC
 	BlockChainFactories["Essentia"] = essentia.NewEssentiaRPC
 	BlockChainFactories["Dogecash"] = dogecash.NewDogecashRPC
+	BlockChainFactories["Stakecubecoin"] = stakecubecoin.NewStakecubecoinRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
