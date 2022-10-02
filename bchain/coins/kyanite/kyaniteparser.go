@@ -10,10 +10,12 @@ import (
 
 const (
 	MainnetMagic wire.BitcoinNet = 0xf9a9f6a6
+	TestnetMagic wire.BitcoinNet = 0x9f6f9a6a
 )
 
 var (
 	MainNetParams chaincfg.Params
+	TestNetParams chaincfg.Params
 )
 
 func init() {
@@ -22,6 +24,13 @@ func init() {
 
 	MainNetParams.PubKeyHashAddrID = []byte{46}
 	MainNetParams.ScriptHashAddrID = []byte{16}
+
+	TestNetParams = chaincfg.TestNet3Params
+	TestNetParams.Net = TestnetMagic
+
+	// Address encoding magics
+	TestNetParams.PubKeyHashAddrID = []byte{107}
+	TestNetParams.ScriptHashAddrID = []byte{19}
 }
 
 type KyaniteParser struct {
@@ -36,11 +45,19 @@ func NewKyaniteParser(params *chaincfg.Params, c *btc.Configuration) *KyanitePar
 func GetChainParams(chain string) *chaincfg.Params {
 	if !chaincfg.IsRegistered(&MainNetParams) {
 		err := chaincfg.Register(&MainNetParams)
+		if err == nil {
+			err = chaincfg.Register(&TestNetParams)
+		}
 		if err != nil {
 			panic(err)
 		}
 	}
-	return &MainNetParams
+	switch chain {
+	case "test":
+		return &TestNetParams
+	default:
+		return &MainNetParams
+	}
 }
 
 func (p *KyaniteParser) PackTx(tx *bchain.Tx, height uint32, blockTime int64) ([]byte, error) {

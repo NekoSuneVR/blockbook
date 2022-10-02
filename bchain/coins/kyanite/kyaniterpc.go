@@ -33,10 +33,16 @@ func (b *KyaniteRPC) Initialize() error {
 	chainName := ci.Chain
 	params := GetChainParams(chainName)
 	b.Parser = NewKyaniteParser(params, b.ChainConfig)
-	b.Testnet = false
-	b.Network = "livenet"
+	// parameters for getInfo request
+	if params.Net == MainnetMagic {
+		b.Testnet = false
+		b.Network = "livenet"
+	} else {
+		b.Testnet = true
+		b.Network = "testnet"
+	}
 	glog.Info("rpc: block chain ", params.Name)
-	return nil
+	return nil 
 }
 
 func (b *KyaniteRPC) GetBlock(hash string, height uint32) (*bchain.Block, error) {
