@@ -11,75 +11,77 @@ import (
 
 	"github.com/juju/errors"
 	"github.com/decenomy/blockbook/bchain"
-	"github.com/decenomy/blockbook/bchain/coins/azzure"
+	"github.com/decenomy/blockbook/bchain/coins/avalanche"
 	"github.com/decenomy/blockbook/bchain/coins/bch"
-	"github.com/decenomy/blockbook/bchain/coins/beacon"
 	"github.com/decenomy/blockbook/bchain/coins/bellcoin"
 	"github.com/decenomy/blockbook/bchain/coins/bitcore"
-	"github.com/decenomy/blockbook/bchain/coins/birake"
 	"github.com/decenomy/blockbook/bchain/coins/bitzeny"
 	"github.com/decenomy/blockbook/bchain/coins/btc"
 	"github.com/decenomy/blockbook/bchain/coins/btg"
 	"github.com/decenomy/blockbook/bchain/coins/cpuchain"
-	"github.com/decenomy/blockbook/bchain/coins/cryptoflow"
-	"github.com/decenomy/blockbook/bchain/coins/cryptosaga"
 	"github.com/decenomy/blockbook/bchain/coins/dash"
-	"github.com/decenomy/blockbook/bchain/coins/dashdiamond"
 	"github.com/decenomy/blockbook/bchain/coins/dcr"
 	"github.com/decenomy/blockbook/bchain/coins/deeponion"
 	"github.com/decenomy/blockbook/bchain/coins/digibyte"
 	"github.com/decenomy/blockbook/bchain/coins/divi"
-	"github.com/decenomy/blockbook/bchain/coins/dogecash"
 	"github.com/decenomy/blockbook/bchain/coins/dogecoin"
-	"github.com/decenomy/blockbook/bchain/coins/eskacoin"
-	"github.com/decenomy/blockbook/bchain/coins/essentia"
+	"github.com/decenomy/blockbook/bchain/coins/ecash"
 	"github.com/decenomy/blockbook/bchain/coins/eth"
-	"github.com/decenomy/blockbook/bchain/coins/fdreserve"
 	"github.com/decenomy/blockbook/bchain/coins/firo"
-	"github.com/decenomy/blockbook/bchain/coins/flits"
 	"github.com/decenomy/blockbook/bchain/coins/flo"
 	"github.com/decenomy/blockbook/bchain/coins/fujicoin"
 	"github.com/decenomy/blockbook/bchain/coins/gamecredits"
-	"github.com/decenomy/blockbook/bchain/coins/gastrocoin"
 	"github.com/decenomy/blockbook/bchain/coins/grs"
-	"github.com/decenomy/blockbook/bchain/coins/jackpot"
-	"github.com/decenomy/blockbook/bchain/coins/klimatas"
-	"github.com/decenomy/blockbook/bchain/coins/kyanite"
 	"github.com/decenomy/blockbook/bchain/coins/koto"
 	"github.com/decenomy/blockbook/bchain/coins/liquid"
 	"github.com/decenomy/blockbook/bchain/coins/litecoin"
-	"github.com/decenomy/blockbook/bchain/coins/mobilitycoin"
 	"github.com/decenomy/blockbook/bchain/coins/monacoin"
 	"github.com/decenomy/blockbook/bchain/coins/monetaryunit"
-	"github.com/decenomy/blockbook/bchain/coins/monk"
 	"github.com/decenomy/blockbook/bchain/coins/myriad"
 	"github.com/decenomy/blockbook/bchain/coins/namecoin"
 	"github.com/decenomy/blockbook/bchain/coins/nuls"
 	"github.com/decenomy/blockbook/bchain/coins/omotenashicoin"
-	"github.com/decenomy/blockbook/bchain/coins/oneworld"
-	"github.com/decenomy/blockbook/bchain/coins/peony"
 	"github.com/decenomy/blockbook/bchain/coins/pivx"
 	"github.com/decenomy/blockbook/bchain/coins/polis"
-	"github.com/decenomy/blockbook/bchain/coins/powerbalt"
 	"github.com/decenomy/blockbook/bchain/coins/qtum"
 	"github.com/decenomy/blockbook/bchain/coins/ravencoin"
 	"github.com/decenomy/blockbook/bchain/coins/ritocoin"
-	"github.com/decenomy/blockbook/bchain/coins/sapphire"
 	"github.com/decenomy/blockbook/bchain/coins/snowgem"
-	"github.com/decenomy/blockbook/bchain/coins/stakecubecoin"
-    "github.com/decenomy/blockbook/bchain/coins/suvereno"
-	"github.com/decenomy/blockbook/bchain/coins/telos"
 	"github.com/decenomy/blockbook/bchain/coins/trezarcoin"
-	"github.com/decenomy/blockbook/bchain/coins/trittium"
-	"github.com/decenomy/blockbook/bchain/coins/ultraclear"
 	"github.com/decenomy/blockbook/bchain/coins/unobtanium"
 	"github.com/decenomy/blockbook/bchain/coins/vertcoin"
 	"github.com/decenomy/blockbook/bchain/coins/viacoin"
 	"github.com/decenomy/blockbook/bchain/coins/vipstarcoin"
-	"github.com/decenomy/blockbook/bchain/coins/wagerr"
 	"github.com/decenomy/blockbook/bchain/coins/zec"
-	"github.com/decenomy/blockbook/bchain/coins/zenzo"
 	"github.com/decenomy/blockbook/common"
+
+	// DECENOMY and Flits hosted coins
+	"github.com/decenomy/blockbook/bchain/coins/azzure"
+	"github.com/decenomy/blockbook/bchain/coins/beacon"
+	"github.com/decenomy/blockbook/bchain/coins/birake"
+	"github.com/decenomy/blockbook/bchain/coins/cryptoflow"
+	"github.com/decenomy/blockbook/bchain/coins/cryptosaga"
+	"github.com/decenomy/blockbook/bchain/coins/dashdiamond"
+	"github.com/decenomy/blockbook/bchain/coins/dogecash"
+	"github.com/decenomy/blockbook/bchain/coins/eskacoin"
+	"github.com/decenomy/blockbook/bchain/coins/essentia"
+	"github.com/decenomy/blockbook/bchain/coins/fdreserve"
+	"github.com/decenomy/blockbook/bchain/coins/flits"
+	"github.com/decenomy/blockbook/bchain/coins/gastrocoin"
+	"github.com/decenomy/blockbook/bchain/coins/jackpot"
+	"github.com/decenomy/blockbook/bchain/coins/klimatas"
+	"github.com/decenomy/blockbook/bchain/coins/kyanite"
+	"github.com/decenomy/blockbook/bchain/coins/mobilitycoin"
+	"github.com/decenomy/blockbook/bchain/coins/monk"
+	"github.com/decenomy/blockbook/bchain/coins/oneworld"
+	"github.com/decenomy/blockbook/bchain/coins/peony"
+	"github.com/decenomy/blockbook/bchain/coins/sapphire"
+	"github.com/decenomy/blockbook/bchain/coins/stakecubecoin"
+    "github.com/decenomy/blockbook/bchain/coins/suvereno"
+	"github.com/decenomy/blockbook/bchain/coins/telos"
+	"github.com/decenomy/blockbook/bchain/coins/ultraclear"
+	"github.com/decenomy/blockbook/bchain/coins/wagerr"
+	"github.com/decenomy/blockbook/bchain/coins/zenzo"
 )
 
 type blockChainFactory func(config json.RawMessage, pushHandler func(bchain.NotificationType)) (bchain.BlockChain, error)
@@ -95,9 +97,14 @@ func init() {
 	BlockChainFactories["Zcash"] = zec.NewZCashRPC
 	BlockChainFactories["Zcash Testnet"] = zec.NewZCashRPC
 	BlockChainFactories["Ethereum"] = eth.NewEthereumRPC
+	BlockChainFactories["Ethereum Archive"] = eth.NewEthereumRPC
 	BlockChainFactories["Ethereum Classic"] = eth.NewEthereumRPC
 	BlockChainFactories["Ethereum Testnet Ropsten"] = eth.NewEthereumRPC
+	BlockChainFactories["Ethereum Testnet Ropsten Archive"] = eth.NewEthereumRPC
 	BlockChainFactories["Ethereum Testnet Goerli"] = eth.NewEthereumRPC
+	BlockChainFactories["Ethereum Testnet Goerli Archive"] = eth.NewEthereumRPC
+	BlockChainFactories["Ethereum Testnet Sepolia"] = eth.NewEthereumRPC
+	BlockChainFactories["Ethereum Testnet Sepolia Archive"] = eth.NewEthereumRPC
 	BlockChainFactories["Bcash"] = bch.NewBCashRPC
 	BlockChainFactories["Bcash Testnet"] = bch.NewBCashRPC
 	BlockChainFactories["Bgold"] = btg.NewBGoldRPC
@@ -125,6 +132,8 @@ func init() {
 	BlockChainFactories["Liquid"] = liquid.NewLiquidRPC
 	BlockChainFactories["Groestlcoin"] = grs.NewGroestlcoinRPC
 	BlockChainFactories["Groestlcoin Testnet"] = grs.NewGroestlcoinRPC
+	BlockChainFactories["Groestlcoin Signet"] = grs.NewGroestlcoinRPC
+	BlockChainFactories["Groestlcoin Regtest"] = grs.NewGroestlcoinRPC
 	BlockChainFactories["PIVX"] = pivx.NewPivXRPC
 	BlockChainFactories["PIVX Testnet"] = pivx.NewPivXRPC
 	BlockChainFactories["Polis"] = polis.NewPolisRPC
@@ -137,7 +146,7 @@ func init() {
 	BlockChainFactories["Qtum Testnet"] = qtum.NewQtumRPC
 	BlockChainFactories["NULS"] = nuls.NewNulsRPC
 	BlockChainFactories["VIPSTARCOIN"] = vipstarcoin.NewVIPSTARCOINRPC
-	BlockChainFactories["ZelCash"] = zec.NewZCashRPC
+	BlockChainFactories["Flux"] = zec.NewZCashRPC
 	BlockChainFactories["Ravencoin"] = ravencoin.NewRavencoinRPC
 	BlockChainFactories["Ritocoin"] = ritocoin.NewRitocoinRPC
 	BlockChainFactories["Divi"] = divi.NewDiviRPC
@@ -153,7 +162,6 @@ func init() {
 	BlockChainFactories["Sapphire"] = sapphire.NewSapphireRPC
 	BlockChainFactories["Kyanite"] = kyanite.NewKyaniteRPC
 	BlockChainFactories["Jackpot"] = jackpot.NewJackpotRPC
-	BlockChainFactories["Trittium"] = trittium.NewTrittiumRPC
 	BlockChainFactories["Dashdiamond"] = dashdiamond.NewDashdiamondRPC
 	BlockChainFactories["Beacon"] = beacon.NewBeaconRPC
 	BlockChainFactories["Peony"] = peony.NewPeonyRPC
@@ -167,7 +175,6 @@ func init() {
 	BlockChainFactories["Cryptosaga"] = cryptosaga.NewCryptosagaRPC
 	BlockChainFactories["Mobilitycoin"] = mobilitycoin.NewMobilitycoinRPC
 	BlockChainFactories["Birake"] = birake.NewBirakeRPC
-	BlockChainFactories["Powerbalt"] = powerbalt.NewPowerbaltRPC
 	BlockChainFactories["Flits"] = flits.NewFlitsRPC
 	BlockChainFactories["Zenzo"] = zenzo.NewZenzoRPC
 	BlockChainFactories["Telos"] = telos.NewTelosRPC
@@ -178,6 +185,9 @@ func init() {
 	BlockChainFactories["Essentia"] = essentia.NewEssentiaRPC
 	BlockChainFactories["Dogecash"] = dogecash.NewDogecashRPC
 	BlockChainFactories["Stakecubecoin"] = stakecubecoin.NewStakecubecoinRPC
+	BlockChainFactories["ECash"] = ecash.NewECashRPC
+	BlockChainFactories["Avalanche"] = avalanche.NewAvalancheRPC
+	BlockChainFactories["Avalanche Archive"] = avalanche.NewAvalancheRPC
 }
 
 // GetCoinNameFromConfig gets coin name and coin shortcut from config file
@@ -308,6 +318,11 @@ func (c *blockChainWithMetrics) GetBlockInfo(hash string) (v *bchain.BlockInfo, 
 	return c.b.GetBlockInfo(hash)
 }
 
+func (c *blockChainWithMetrics) GetBlockRaw(hash string) (v string, err error) {
+	defer func(s time.Time) { c.observeRPCLatency("GetBlockRaw", s, err) }(time.Now())
+	return c.b.GetBlockRaw(hash)
+}
+
 func (c *blockChainWithMetrics) GetMempoolTransactions() (v []string, err error) {
 	defer func(s time.Time) { c.observeRPCLatency("GetMempoolTransactions", s, err) }(time.Now())
 	return c.b.GetMempoolTransactions()
@@ -367,14 +382,20 @@ func (c *blockChainWithMetrics) EthereumTypeEstimateGas(params map[string]interf
 	return c.b.EthereumTypeEstimateGas(params)
 }
 
-func (c *blockChainWithMetrics) EthereumTypeGetErc20ContractInfo(contractDesc bchain.AddressDescriptor) (v *bchain.Erc20Contract, err error) {
-	defer func(s time.Time) { c.observeRPCLatency("EthereumTypeGetErc20ContractInfo", s, err) }(time.Now())
-	return c.b.EthereumTypeGetErc20ContractInfo(contractDesc)
+func (c *blockChainWithMetrics) GetContractInfo(contractDesc bchain.AddressDescriptor) (v *bchain.ContractInfo, err error) {
+	defer func(s time.Time) { c.observeRPCLatency("GetContractInfo", s, err) }(time.Now())
+	return c.b.GetContractInfo(contractDesc)
 }
 
 func (c *blockChainWithMetrics) EthereumTypeGetErc20ContractBalance(addrDesc, contractDesc bchain.AddressDescriptor) (v *big.Int, err error) {
-	defer func(s time.Time) { c.observeRPCLatency("EthereumTypeGetErc20ContractInfo", s, err) }(time.Now())
+	defer func(s time.Time) { c.observeRPCLatency("EthereumTypeGetErc20ContractBalance", s, err) }(time.Now())
 	return c.b.EthereumTypeGetErc20ContractBalance(addrDesc, contractDesc)
+}
+
+// GetContractInfo returns URI of non fungible or multi token defined by token id
+func (c *blockChainWithMetrics) GetTokenURI(contractDesc bchain.AddressDescriptor, tokenID *big.Int) (v string, err error) {
+	defer func(s time.Time) { c.observeRPCLatency("GetTokenURI", s, err) }(time.Now())
+	return c.b.GetTokenURI(contractDesc, tokenID)
 }
 
 type mempoolWithMetrics struct {

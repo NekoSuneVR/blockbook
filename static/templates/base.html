@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/main{{.Minified}}.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="/static/js/main{{.Minified}}.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Decenomy {{.CoinLabel}} Explorer">
     <title>Decenomy {{.CoinLabel}} Explorer</title>
@@ -14,8 +16,8 @@
 
 <body>
     <header id="header">
-        <div class="container">
-            <nav class="navbar navbar-expand-md navbar-dark bg-trezor">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
                 <a class="navbar-brand" href="/" title="Home">
                     <div alt="Decenomy" style="margin-top: 3px;">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="enable-background:new 0 0 231 42;" xml:space="preserve" width="231" height="42"><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
@@ -31,42 +33,74 @@
                 <a class="navbar-brand" href="/">
                     {{.CoinLabel}} Explorer
                 </a>
-                <button class="navbar-toggler" type="button" onclick="if(document.getElementById('toggler').className.indexOf('show')>0){document.getElementById('toggler').className='navbar-collapse collapse'}else{document.getElementById('toggler').className='navbar-collapse show'}">
+                {{if .InternalExplorer}}
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse" id="toggler">
-                    {{- if .InternalExplorer -}}
-                    <ul class="navbar-nav ml-md-auto">
-                        <li class="nav-item">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-md-auto">
+                        <li class="nav-item pe-xl-4">
                             <a href="/blocks" class="nav-link">Blocks</a>
                         </li>
                         <li class="nav-item">
                             <a href="/" class="nav-link">Status</a>
                         </li>
                     </ul>
-                    <span class="navbar-form ml-md-auto">
-                        <form id="search" action="/search" method="get">
-                            <input name="q" type="text" class="form-control" placeholder="Search for block, transaction, address or xpub" focus="true">
+                    <span class="navbar-form">
+                        <form class="d-flex" id="search" action="/search" method="get">
+                            <input name="q" type="text" class="form-control form-control-lg" placeholder="Search for block, transaction, address or xpub" focus="true">
+                            <button class="btn" type="submit">
+                                <span class="search-icon"></span>
+                            </button>
                         </form>
                     </span>
-                    {{- end -}}
+                    {{if .SecondaryCoin}}
+                    <div class="bb-group ms-lg-2 mt-2 mt-lg-0" role="group" aria-label="Currency switch">
+                        <input type="radio" class="btn-check" name="btnradio" id="primary-coin" autocomplete="off"{{if not .UseSecondaryCoin}} checked{{end}}>
+                        <label class="btn" for="primary-coin">{{.CoinShortcut}}</label>
+                        <input type="radio" class="btn-check" name="btnradio" id="secondary-coin" autocomplete="off"{{if .UseSecondaryCoin}} checked{{end}}>
+                        <label class="btn" for="secondary-coin">{{.SecondaryCoin}}</label>
+                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                        <div class="dropdown-menu row">
+                            {{range $c := .SecondaryCurrencies}}
+                            <div class="col-3"><a href="?secondary={{$c}}&use_secondary=true">{{$c}}</a></div>
+                            {{end}}
+                        </div>                        
+                    </div>
+                    {{end}}
                 </div>
-            </nav>
-        </div>
+                {{end}}
+            </div>
+        </nav>
     </header>
     <main id="wrap">
         <div class="container">
             {{- template "specific" . -}}
         </div>
     </main>
-    <footer id="footer" class="footer">
+    <footer id="footer">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-trezor">
+            <nav class="navbar navbar-dark">
                 <span class="navbar-nav">
-                    <a class="nav-link" href="https://decenomy.net/" target="_blank" rel="noopener noreferrer">© 2021 SatoshiLabs / The Decenomy developers</a>
+                    <a class="nav-link" href="https://decenomy.net/" target="_blank" rel="noopener noreferrer">Created by SatoshiLabs / The Decenomy developers</a>
                 </span>
                 <span class="navbar-nav ml-md-auto">
-                    <a href="/sendtx" class="nav-link">Send Transaction</a>
+                    <a class="nav-link" href="{{- .TOSLink -}}" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+                </span>
+                <span class="navbar-nav ml-md-auto d-md-flex d-none">
+                    <a class="nav-link" href="https://trezor.io/" target="_blank" rel="noopener noreferrer">Trezor</a>
+                </span>
+                <span class="navbar-nav ml-md-auto d-md-flex d-none">
+                    <a class="nav-link" href="https://trezor.io/trezor-suite" target="_blank" rel="noopener noreferrer">Suite</a>
+                </span>
+                <span class="navbar-nav ml-md-auto d-md-flex d-none">
+                    <a class="nav-link" href="https://trezor.io/support" target="_blank" rel="noopener noreferrer">Support</a>
+                </span>
+                <span class="navbar-nav ml-md-auto">
+                    <a class="nav-link" href="/sendtx">Send Transaction</a>
+                </span>
+                <span class="navbar-nav ml-md-auto d-lg-flex d-none">
+                    <a class="nav-link" href="https://trezor.io/compare" target="_blank" rel="noopener noreferrer">Don't have a Trezor? Get one!</a>
                 </span>
             </nav>
         </div>
