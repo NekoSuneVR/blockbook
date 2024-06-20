@@ -237,7 +237,10 @@ Get blockbook sources, install dependencies, build:
 cd $GOPATH/src
 git clone https://github.com/decenomy/blockbook.git
 cd blockbook
-go build
+export GITCOMMIT=$(git describe --always --dirty)
+export BUILDTIME=$(date --iso-8601=seconds)
+export VERSION=$(cat configs/environ.json | jq .version | sed 's/"//g')
+go build -ldflags="-s -w -X github.com/decenomy/blockbook/common.version=$(echo $VERSION) -X github.com/decenomy/blockbook/common.gitcommit=$(echo $GITCOMMIT) -X github.com/decenomy/blockbook/common.buildtime=$(echo $BUILDTIME)"
 ```
 
 ### Example command

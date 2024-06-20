@@ -44,6 +44,7 @@ func NewKyaniteParser(params *chaincfg.Params, c *btc.Configuration) *KyanitePar
 
 func GetChainParams(chain string) *chaincfg.Params {
 	if !chaincfg.IsRegistered(&MainNetParams) {
+		chaincfg.ResetParams()
 		err := chaincfg.Register(&MainNetParams)
 		if err == nil {
 			err = chaincfg.Register(&TestNetParams)

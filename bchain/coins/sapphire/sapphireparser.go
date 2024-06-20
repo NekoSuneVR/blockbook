@@ -35,6 +35,7 @@ func NewSapphireParser(params *chaincfg.Params, c *btc.Configuration) *SapphireP
 
 func GetChainParams(chain string) *chaincfg.Params {
 	if !chaincfg.IsRegistered(&MainNetParams) {
+		chaincfg.ResetParams()
 		err := chaincfg.Register(&MainNetParams)
 		if err != nil {
 			panic(err)
